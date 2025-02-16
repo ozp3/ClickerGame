@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
     // yield = baseClick * [1 + (rem/25)*4] * (5^(seg))
     double CalculateClickYieldSimple(int level)
     {
-        return System.Math.Pow(1.1122, level);
+        return System.Math.Pow(1.11, level);
     }
 
 
@@ -466,7 +466,7 @@ public class GameManager : MonoBehaviour
         // Click upgrade UI: mevcut --> sonraki yield ve maliyet %11.68 artışla.
         double currentClickYield = CalculateClickYieldSimple(normalHitUpgradeLevel);
         double nextClickYield = CalculateClickYieldSimple(normalHitUpgradeLevel + 1);
-        clickUpgradeButtonText.text = $"Click Upgrade (Lvl {normalHitUpgradeLevel})\nYield: {FormatNumber(currentClickYield)} --> {FormatNumber(nextClickYield)}\nCost: {FormatNumber(Mathf.Pow(1.1168f, normalHitUpgradeLevel))}";
+        clickUpgradeButtonText.text = $"Click Upgrade (Lvl {normalHitUpgradeLevel})\nYield: {FormatNumber(currentClickYield)} --> {FormatNumber(nextClickYield)}\nCost: {FormatNumber(Mathf.Pow(1.138f, normalHitUpgradeLevel))}";
 
         // Passive income butonları
         long currentYield1 = passiveIncomeLevel1 > 0 ? CalculateXPYield(passiveIncomeLevel1, 100L) : 0;
@@ -608,7 +608,7 @@ public class GameManager : MonoBehaviour
 
     void BuyClickUpgrade()
     {
-        float cost = Mathf.Pow(1.1168f, normalHitUpgradeLevel);
+        float cost = Mathf.Pow(1.138f, normalHitUpgradeLevel);
         if (availableMoney >= cost)
         {
             availableMoney -= cost;
